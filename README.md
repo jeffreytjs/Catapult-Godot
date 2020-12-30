@@ -1,8 +1,10 @@
 # Catapult Game
  
-The initial commit is a copy of [@Deep-fold's repo for CatapultGame](https://github.com/Deep-Fold/CatapultGame)
-submitted for github Game Off 2020, playable on itch.io [here](https://deep-fold.itch.io/catapult). It's a
-really cute game.
+The initial commit is a copy of [@Deep-fold's repo for CatapultGame](https://github.com/Deep-Fold/CatapultGame).
+@Deep-fold's CatapultGame was submitted for github Game Off 2020, playable on itch.io [here](https://deep-fold.itch.io/catapult). 
+It's a really cute game.
+
+![Screenshot](Catapult/images/UI.png)
 
 Credits:
 <br>Catapult @Deep-fold (https://github.com/Deep-Fold/CatapultGame)
