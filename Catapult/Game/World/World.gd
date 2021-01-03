@@ -19,7 +19,7 @@ onready var moon_sprite = $CanvasLayer/moon
 onready var line_drawer = $BounceLineDrawer
 onready var stuff_spawner = $LaunchStuffSpawner
 
-const moon_height = 15000.0
+const moon_height = 25000.0
 var height_achieved = 0.0
 
 func _ready():
@@ -44,14 +44,14 @@ func _on_catapult_launch_cat(launch_vec):
 	if first_launch:
 		$LaunchMusic.play()
 		first_launch = false
-	
+
 	$CalmMusic.volume_db = -80
 	$LaunchMusic.volume_db = 0
 
 func _on_camera_track_object_fallen():
 	for b in get_tree().get_nodes_in_group("booster"):
 		b.queue_free()
-	
+
 	_move_cam_down()
 	var cat = mousestate.get_held_cat()
 	height_achieved = cat.position.y
@@ -78,7 +78,7 @@ func change_moon_size(height):
 
 func _on_Camera2D_change_height(height):
 	change_moon_size(height)
-	
+
 	if -height > moon_height:
 		_reached_moon()
 
@@ -94,7 +94,7 @@ func _on_BounceLineDrawer_remove_milk(amount):
 func _on_BounceLineDrawer_visual_change_milk(amount):
 	var cat = mousestate.get_held_cat()
 	var current_milk = cat.milk - amount
-	
+
 	emit_signal("update_milk", current_milk)
 
 func _connect_cat_signals():
@@ -114,12 +114,12 @@ func _on_cat_land():
 	emit_signal("hide_milk_bar")
 	emit_signal("show_shop_tutorial")
 	stuff_spawner.go_idle()
-	
+
 	#$LaunchMusic.stop()
 	#$CalmMusic.play()
 	$CalmMusic.volume_db = 0
 	$LaunchMusic.volume_db = -80
-	
+
 	if !just_reset:
 		$HideHeight.start()
 		$Control/VBoxContainer/HowFar.text = String(-int(height_achieved))+"m"
